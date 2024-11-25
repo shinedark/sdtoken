@@ -6,6 +6,39 @@ This project integrates **K3 Labs** functionality to bridge off-chain music stre
 
 ---
 
+### Contributing
+
+We welcome contributions from developers, music industry professionals, and blockchain enthusiasts! Here's how you can get involved:
+
+1. **Fork & Clone**
+
+   - Fork this repository
+   - Clone your fork locally
+
+2. **Areas for Contribution**
+
+   - Streaming platform integrations
+   - Smart contract improvements
+   - Token economics modeling
+   - Documentation enhancements
+   - Testing and security audits
+
+3. **How to Contribute**
+   - Create a new branch for your feature
+   - Submit a Pull Request with a clear description
+   - Follow our coding standards (see CONTRIBUTING.md)
+
+Join our community:
+
+- X (Twitter): [Follow @ShineDarkmusic](https://x.com/ShineDarkmusic)
+- Instagram: [Follow @shinedarkmusic](https://www.instagram.com/shinedarkmusic/)
+- YouTube: [Subscribe](https://www.youtube.com/channel/UCVbJWtMZ4rF1SpDBLC2E8wg?view_as=subscriber)
+- GitHub Discussions: Share ideas and feedback
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
 ### Features
 
 1. **Streaming Data Integration**
@@ -80,6 +113,32 @@ This project integrates **K3 Labs** functionality to bridge off-chain music stre
 - **Streaming API Access** (Apple Music, Spotify, etc.)
 - **Blockchain Wallet**
 - **Uniswap and EigenLayer Configuration**
+
+---
+
+### Connect & Follow
+
+- 🎵 **Music Platforms**
+
+  - [Apple Music](https://music.apple.com/us/artist/shine-dark/993072837)
+  - [Spotify](https://open.spotify.com/artist/6Ch6jH9Q2wxd3im5IRYFoF)
+  - [SoundCloud](https://soundcloud.com/shinedark)
+  - [Mixcloud](https://www.mixcloud.com/shinedark/)
+
+- 🌐 **Web & Portfolio**
+
+  - [Official Website](https://www.shinedarkmusic.com/)
+  - [Code Portfolio](https://shinedark.dev/)
+
+- 📱 **Social Media**
+
+  - [X (Twitter)](https://x.com/ShineDarkmusic)
+  - [Instagram](https://www.instagram.com/shinedarkmusic/)
+  - [YouTube](https://www.youtube.com/channel/UCVbJWtMZ4rF1SpDBLC2E8wg?view_as=subscriber)
+  - [Twitch](https://www.twitch.tv/shinedarkmusic)
+
+- 💿 **Support**
+  - [Buy Vinyl](https://www.paypal.com/ncp/payment/RVBUJR3MTSYB2)
 
 ---
 
