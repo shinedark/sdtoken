@@ -10,6 +10,12 @@ This project integrates **K3 Labs** functionality to bridge off-chain music stre
 
 ---
 
+### MVP
+
+![MVP Diagram](./media/mockflow.png)
+
+For detailed MVP specifications, see [MVP Documentation](./MVP.md)
+
 ### Contributing
 
 We welcome contributions from developers, music industry professionals, and blockchain enthusiasts! Here's how you can get involved:
