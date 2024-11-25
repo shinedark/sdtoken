@@ -142,6 +142,25 @@ For major changes, please open an issue first to discuss what you would like to 
 
 ---
 
+### Live Development Streams 🎥
+
+We believe in transparent and collaborative development! Join us on Twitch where we stream our development process live:
+
+- **Watch Live**: [twitch.tv/shinedarkmusic](https://www.twitch.tv/shinedarkmusic)
+
+During streams, you can:
+
+- See real-time development
+- Ask questions about the codebase
+- Suggest features and improvements
+- Learn about blockchain and music tokenization
+- Participate in technical discussions
+- See me produce music , dj , create stuff
+
+Follow our [Twitch channel](https://www.twitch.tv/shinedarkmusic) to get notified when we go live!
+
+---
+
 ### Future Enhancements
 
 - Expand integration with multiple streaming platforms.
