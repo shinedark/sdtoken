@@ -1,3 +1,7 @@
+![Music Tokenization Project](./media/intro.png)
+
+# SHINE DARK SOFT KILL JAMS Music Tokenization Project
+
 ### README: Music Tokenization Workflow Using K3 Labs
 
 #### Overview
@@ -138,6 +142,7 @@ For major changes, please open an issue first to discuss what you would like to 
   - [Twitch](https://www.twitch.tv/shinedarkmusic)
 
 - 💿 **Support**
+  ![Vinyl](./media//sd.png)
   - [Buy Vinyl](https://www.paypal.com/ncp/payment/RVBUJR3MTSYB2)
 
 ---
@@ -170,3 +175,7 @@ Follow our [Twitch channel](https://www.twitch.tv/shinedarkmusic) to get notifie
 ---
 
 This README outlines a proof-of-concept for transforming music streams into a tangible on-chain token economy, driving artist and fan engagement while leveraging cutting-edge blockchain tools.
+
+AI HELPED !!! will you?
+
+![outro](./media/bottom.png)
