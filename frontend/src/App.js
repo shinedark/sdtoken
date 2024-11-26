@@ -9,13 +9,21 @@ import {
   Grid,
   Card,
   CardContent,
+  Alert,
+  Divider,
 } from '@mui/material'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import axios from 'axios'
+import Web3 from 'web3'
+import TokenDashboard from './components/TokenDashboard'
+import StakingInterface from './components/StakingInterface'
+import PriceChart from './components/PriceChart'
+import SKJMusicTokenABI from './contracts/SKJMusicToken.json'
 
 const API_URL = 'http://localhost:8000/api'
+const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS
 
 function App() {
   const [formData, setFormData] = useState({
@@ -29,10 +37,42 @@ function App() {
 
   const [streams, setStreams] = useState([])
   const [totalEarnings, setTotalEarnings] = useState(0)
+  const [web3, setWeb3] = useState(null)
+  const [contract, setContract] = useState(null)
+  const [account, setAccount] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetchData()
+    initializeWeb3()
   }, [])
+
+  const initializeWeb3 = async () => {
+    try {
+      if (window.ethereum) {
+        const web3Instance = new Web3(window.ethereum)
+        await window.ethereum.request({ method: 'eth_requestAccounts' })
+        const accounts = await web3Instance.eth.getAccounts()
+        const contractInstance = new web3Instance.eth.Contract(
+          SKJMusicTokenABI,
+          CONTRACT_ADDRESS,
+        )
+
+        setWeb3(web3Instance)
+        setContract(contractInstance)
+        setAccount(accounts[0])
+
+        // Listen for account changes
+        window.ethereum.on('accountsChanged', (accounts) => {
+          setAccount(accounts[0])
+        })
+      } else {
+        setError('Please install MetaMask to use this dApp')
+      }
+    } catch (err) {
+      setError('Error connecting to Web3: ' + err.message)
+    }
+  }
 
   const fetchData = async () => {
     try {
@@ -83,7 +123,27 @@ function App() {
           SDToken Stream Management
         </Typography>
 
-        <Grid container spacing={3}>
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
+
+        {web3 && contract && account && (
+          <>
+            <TokenDashboard web3={web3} contract={contract} account={account} />
+            <PriceChart web3={web3} contract={contract} />
+            <StakingInterface
+              web3={web3}
+              contract={contract}
+              account={account}
+            />
+          </>
+        )}
+
+        <Divider sx={{ my: 4 }} />
+
+        <Grid container spacing={3} sx={{ mt: 3 }}>
           <Grid item xs={12} md={6}>
             <Paper elevation={3} sx={{ p: 3 }}>
               <Typography variant="h5" gutterBottom>
