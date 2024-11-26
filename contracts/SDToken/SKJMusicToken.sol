@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // EigenLayer interface definitions
 interface IStrategy {
@@ -26,12 +27,6 @@ interface IDelegationManager {
 /**
  * @title SKJMusicToken
  * @dev A token contract for Shine Dark's music streaming royalties with EigenLayer integration
- * 
- * This contract handles:
- * 1. Monthly streaming royalty distributions
- * 2. EigenLayer staking for network security
- * 3. Reward distribution to stakers
- * 4. Token value appreciation based on streaming performance
  */
 contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausable {
     using SafeERC20 for IERC20;
@@ -75,6 +70,7 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
     event DelegationManagerUpdated(address indexed newManager);
     event TokenPriceUpdated(uint256 newPrice, uint256 streamCount);
     event MonthlyMetricsSnapshot(uint256 indexed monthIndex, uint256 totalStreams, uint256 totalRoyalties);
+    event ArtistWithdrawal(uint256 amount, uint256 timestamp);
 
     // State variables
     mapping(address => uint256) private stakes;
@@ -83,7 +79,14 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
     mapping(address => bool) public operators;
     TokenMetrics public tokenMetrics;
     uint256 public currentMonth;
-    uint256 private snapshotId;
+    uint256 private _currentSnapshotId;
+
+    // Staker tracking
+    address[] private stakers;
+    mapping(address => bool) private isStaker;
+
+    // Track artist's withdrawable balance
+    uint256 public artistWithdrawableBalance;
 
     constructor(
         address _eigenStrategy,
@@ -101,6 +104,22 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
         
         // Mint initial supply for the contract owner
         _mint(msg.sender, 1000000 * 10 ** decimals());
+    }
+
+    /**
+     * @notice Distribute rewards to stakers based on their stake
+     * @param amount Total amount to distribute
+     */
+    function distributeStakersRewards(uint256 amount) internal {
+        uint256 totalStaked = eigenStrategy.totalShares();
+        require(totalStaked > 0, "No stakes to distribute to");
+
+        for (uint256 i = 0; i < getStakersCount(); i++) {
+            address staker = getStakerAtIndex(i);
+            uint256 stakerShare = eigenStrategy.shares(staker);
+            uint256 reward = (amount * stakerShare) / totalStaked;
+            pendingRewards[staker] += reward;
+        }
     }
 
     /**
@@ -146,11 +165,15 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
         uint256 artistAmount = (royalty.totalAmount * ARTIST_SHARE) / BASIS_POINTS;
         uint256 stakersAmount = royalty.totalAmount - artistAmount;
         
-        // Transfer artist's share
-        payable(ARTIST_ADDRESS).transfer(artistAmount);
+        // Add artist's share to withdrawable balance instead of immediate transfer
+        artistWithdrawableBalance += artistAmount;
         
-        // Distribute stakers' share
-        distributeStakersRewards(stakersAmount);
+        // Distribute stakers' share if there are stakers, otherwise keep in contract
+        uint256 totalStaked = eigenStrategy.totalShares();
+        if (totalStaked > 0) {
+            distributeStakersRewards(stakersAmount);
+        }
+        // If no stakers, keep the stakers' share in the contract for future stakers
         
         royalty.distributed = true;
         emit RoyaltiesDistributed(artistAmount, stakersAmount, monthIndex);
@@ -164,13 +187,24 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
     function updateTokenPrice(uint256 newStreams, uint256 newRoyalties) internal {
         uint256 timePassed = block.timestamp - tokenMetrics.lastPriceUpdate;
         if (timePassed >= MONTH) {
-            // Simple price adjustment based on growth
-            uint256 streamGrowth = (newStreams * 1e18) / tokenMetrics.totalStreamCount;
-            uint256 royaltyGrowth = (newRoyalties * 1e18) / tokenMetrics.totalRoyalties;
+            // Calculate growth factors with higher precision
+            uint256 streamGrowth = tokenMetrics.totalStreamCount > 0 
+                ? (newStreams * 1e18 * 1e9) / tokenMetrics.totalStreamCount 
+                : 2e18 * 1e9; // 2x growth for first month
+                
+            uint256 royaltyGrowth = tokenMetrics.totalRoyalties > 0
+                ? (newRoyalties * 1e18 * 1e9) / tokenMetrics.totalRoyalties
+                : 2e18 * 1e9; // 2x growth for first month
             
             // Average of stream and royalty growth
             uint256 growthFactor = (streamGrowth + royaltyGrowth) / 2;
-            tokenMetrics.basePrice = (tokenMetrics.basePrice * growthFactor) / 1e18;
+            
+            // Apply growth factor with higher precision, minimum 1.1x growth if performance improved
+            if (growthFactor > 1e27) { // 1e18 * 1e9
+                tokenMetrics.basePrice = (tokenMetrics.basePrice * growthFactor) / 1e27;
+            } else {
+                tokenMetrics.basePrice = (tokenMetrics.basePrice * 11) / 10; // 1.1x minimum growth
+            }
             
             tokenMetrics.lastPriceUpdate = block.timestamp;
             emit TokenPriceUpdated(tokenMetrics.basePrice, newStreams);
@@ -185,19 +219,13 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
         require(balanceOf(msg.sender) >= amount, "Insufficient balance");
         require(amount > 0, "Cannot stake 0 tokens");
 
-        // Take snapshot before stake
         _snapshot();
-        
-        // Transfer tokens to this contract
         _transfer(msg.sender, address(this), amount);
-        
-        // Approve EigenLayer strategy
         IERC20(address(this)).safeApprove(address(eigenStrategy), amount);
-        
-        // Deposit into EigenLayer
         eigenStrategy.deposit(amount);
         
         stakes[msg.sender] += amount;
+        _addStaker(msg.sender);
         emit Staked(msg.sender, amount);
     }
 
@@ -209,15 +237,12 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
         require(stakes[msg.sender] >= amount, "Insufficient staked balance");
         require(amount > 0, "Cannot unstake 0 tokens");
 
-        // Take snapshot before unstake
         _snapshot();
-        
-        // Withdraw from EigenLayer
         eigenStrategy.withdraw(amount);
-        
         stakes[msg.sender] -= amount;
         _transfer(address(this), msg.sender, amount);
         
+        _removeStaker(msg.sender);
         emit Unstaked(msg.sender, amount);
     }
 
@@ -241,20 +266,69 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
     /**
      * @notice Get staked balance at a specific snapshot
      * @param account Address to check
-     * @param snapshotId Snapshot ID
+     * @param id Snapshot ID
      * @return Balance at snapshot
      */
-    function stakedBalanceAt(address account, uint256 snapshotId) external view returns (uint256) {
-        return balanceOfAt(account, snapshotId);
+    function stakedBalanceAt(address account, uint256 id) external view returns (uint256) {
+        return balanceOfAt(account, id);
     }
 
-    // Override required function for ERC20Snapshot
+    /**
+     * @notice Get total number of stakers
+     * @return Number of stakers
+     */
+    function getStakersCount() public view returns (uint256) {
+        return stakers.length;
+    }
+
+    /**
+     * @notice Get staker address at specific index
+     * @param index Index in stakers array
+     * @return Staker address
+     */
+    function getStakerAtIndex(uint256 index) public view returns (address) {
+        require(index < stakers.length, "Index out of bounds");
+        return stakers[index];
+    }
+
+    /**
+     * @notice Create a new snapshot
+     */
+    function _snapshot() internal override returns (uint256) {
+        _currentSnapshotId++;
+        emit Snapshot(_currentSnapshotId);
+        return _currentSnapshotId;
+    }
+
+    // Override required functions for ERC20Snapshot
     function _beforeTokenTransfer(
         address from,
         address to,
         uint256 amount
-    ) internal virtual override(ERC20, ERC20Snapshot) {
+    ) internal override(ERC20, ERC20Snapshot) {
         super._beforeTokenTransfer(from, to, amount);
+    }
+
+    // Add staker to tracking when staking
+    function _addStaker(address staker) internal {
+        if (!isStaker[staker]) {
+            isStaker[staker] = true;
+            stakers.push(staker);
+        }
+    }
+
+    // Remove staker from tracking when fully unstaking
+    function _removeStaker(address staker) internal {
+        if (isStaker[staker] && stakes[staker] == 0) {
+            isStaker[staker] = false;
+            for (uint256 i = 0; i < stakers.length; i++) {
+                if (stakers[i] == staker) {
+                    stakers[i] = stakers[stakers.length - 1];
+                    stakers.pop();
+                    break;
+                }
+            }
+        }
     }
 
     // Emergency functions
@@ -268,4 +342,35 @@ contract SKJMusicToken is ERC20, ERC20Snapshot, Ownable, ReentrancyGuard, Pausab
 
     // Receive function to accept ETH
     receive() external payable {}
+
+    /**
+     * @notice Get staked balance of an account
+     * @param account Address to check
+     * @return Amount of tokens staked
+     */
+    function getStakedBalance(address account) external view returns (uint256) {
+        return stakes[account];
+    }
+
+    /**
+     * @notice Get artist's current withdrawable balance
+     * @return Amount of ETH available for withdrawal
+     */
+    function getArtistWithdrawableBalance() external view returns (uint256) {
+        return artistWithdrawableBalance;
+    }
+
+    /**
+     * @notice Allow artist to withdraw their available balance
+     */
+    function artistWithdraw() external {
+        require(msg.sender == ARTIST_ADDRESS, "Only artist can withdraw");
+        require(artistWithdrawableBalance > 0, "No funds available");
+        
+        uint256 amount = artistWithdrawableBalance;
+        artistWithdrawableBalance = 0;
+        
+        payable(ARTIST_ADDRESS).transfer(amount);
+        emit ArtistWithdrawal(amount, block.timestamp);
+    }
 }
