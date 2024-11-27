@@ -4,7 +4,9 @@
 
 ## Overview
 
-A comprehensive music tokenization platform that bridges off-chain music streaming data with on-chain token economics. Using data from streaming platforms for [Shine Dark](https://music.apple.com/us/artist/shine-dark/993072837), we calculate token value based on music performance metrics and facilitate royalty management through blockchain mechanisms.
+A comprehensive music tokenization platform template that bridges off-chain music streaming data with on-chain token economics. Using data from streaming platforms for [Shine Dark](https://music.apple.com/us/artist/shine-dark/993072837) or any other Artist, we calculate token value based on music performance metrics and facilitate royalty management through blockchain mechanisms.
+
+Take this as a template and use it for your label, artist, or any other music project. Decentralize your music royalties and empower your fans with a share of the pie. Make your music project a community effort.
 
 ## 🚀 Quick Start
 
