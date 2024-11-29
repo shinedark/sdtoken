@@ -19,6 +19,7 @@
     "@nomiclabs/hardhat-etherscan": "^3.1.8",
     "hardhat": "^2.14.0",
     "hardhat-gas-reporter": "^1.0.10",
-    "solidity-coverage": "^0.8.14"
+    "solidity-coverage": "^0.8.14",
+    "source-map-loader": "^5.0.0"
   }
 }

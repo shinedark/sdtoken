@@ -2,45 +2,34 @@ import React, { useState, useEffect } from 'react'
 import {
   Container,
   Paper,
-  TextField,
-  Button,
   Typography,
   Box,
   Grid,
-  Card,
-  CardContent,
   Alert,
   Divider,
+  CircularProgress,
 } from '@mui/material'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import axios from 'axios'
 import Web3 from 'web3'
 import TokenDashboard from './components/TokenDashboard'
 import StakingInterface from './components/StakingInterface'
 import PriceChart from './components/PriceChart'
+import ReleasesGrid from './components/ReleasesGrid'
 import SKJMusicTokenABI from './contracts/SKJMusicToken.json'
 
 const API_URL = 'http://localhost:8000/api'
 const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS
 
 function App() {
-  const [formData, setFormData] = useState({
-    store_name: '',
-    stream_count: '',
-    earnings: '',
-    period_start: null,
-    period_end: null,
-    video_proof_url: '',
-  })
-
   const [streams, setStreams] = useState([])
   const [totalEarnings, setTotalEarnings] = useState(0)
   const [web3, setWeb3] = useState(null)
   const [contract, setContract] = useState(null)
   const [account, setAccount] = useState(null)
   const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetchData()
@@ -75,6 +64,7 @@ function App() {
   }
 
   const fetchData = async () => {
+    setIsLoading(true)
     try {
       const [streamsRes, earningsRes] = await Promise.all([
         axios.get(`${API_URL}/streams`),
@@ -84,41 +74,24 @@ function App() {
       setTotalEarnings(earningsRes.data.total_earnings)
     } catch (error) {
       console.error('Error fetching data:', error)
+      setError('Error loading stream data: ' + error.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleStreamUpdate = async (streamData) => {
     try {
-      await axios.post(`${API_URL}/streams`, {
-        ...formData,
-        stream_count: parseInt(formData.stream_count),
-        earnings: parseFloat(formData.earnings),
-      })
+      await axios.post(`${API_URL}/streams`, streamData)
       fetchData()
-      setFormData({
-        store_name: '',
-        stream_count: '',
-        earnings: '',
-        period_start: null,
-        period_end: null,
-        video_proof_url: '',
-      })
     } catch (error) {
-      console.error('Error submitting data:', error)
+      console.error('Error submitting stream data:', error)
     }
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
   }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h3" gutterBottom>
           SDToken Stream Management
         </Typography>
@@ -141,126 +114,74 @@ function App() {
           </>
         )}
 
-        <Divider sx={{ my: 4 }} />
+        <Box mt={4}>
+          <Typography variant="h4" gutterBottom>
+            Music Releases
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary" paragraph>
+            Browse releases and submit stream data to earn tokens
+          </Typography>
+          <ReleasesGrid onStreamUpdate={handleStreamUpdate} />
+        </Box>
 
-        <Grid container spacing={3} sx={{ mt: 3 }}>
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 3 }}>
-              <Typography variant="h5" gutterBottom>
-                Add New Stream Data
-              </Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  fullWidth
-                  label="Store Name"
-                  name="store_name"
-                  value={formData.store_name}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <TextField
-                  fullWidth
-                  label="Stream Count"
-                  name="stream_count"
-                  type="number"
-                  value={formData.stream_count}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <TextField
-                  fullWidth
-                  label="Earnings"
-                  name="earnings"
-                  type="number"
-                  value={formData.earnings}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <DatePicker
-                  label="Period Start"
-                  value={formData.period_start}
-                  onChange={(date) =>
-                    setFormData({ ...formData, period_start: date })
-                  }
-                  slotProps={{
-                    textField: { fullWidth: true, margin: 'normal' },
-                  }}
-                />
-                <DatePicker
-                  label="Period End"
-                  value={formData.period_end}
-                  onChange={(date) =>
-                    setFormData({ ...formData, period_end: date })
-                  }
-                  slotProps={{
-                    textField: { fullWidth: true, margin: 'normal' },
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  label="Video Proof URL"
-                  name="video_proof_url"
-                  value={formData.video_proof_url}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  sx={{ mt: 2 }}
-                  fullWidth
-                >
-                  Submit
-                </Button>
-              </form>
-            </Paper>
+        <Box mt={4}>
+          <Typography variant="h4" gutterBottom>
+            Recent Streams
+          </Typography>
+
+          <Grid container spacing={3} sx={{ mb: 3 }}>
+            <Grid item xs={12} sm={6} md={3}>
+              <Paper elevation={3} sx={{ p: 2, textAlign: 'center' }}>
+                <Typography variant="h6">Total Earnings</Typography>
+                <Typography variant="h4">
+                  ${totalEarnings.toFixed(2)}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <Paper elevation={3} sx={{ p: 2, textAlign: 'center' }}>
+                <Typography variant="h6">Total Streams</Typography>
+                <Typography variant="h4">
+                  {streams.reduce(
+                    (acc, stream) => acc + stream.stream_count,
+                    0,
+                  )}
+                </Typography>
+              </Paper>
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 3 }}>
-              <Typography variant="h5" gutterBottom>
-                Statistics
-              </Typography>
-              <Typography variant="h6">
-                Total Earnings: ${totalEarnings.toFixed(2)}
-              </Typography>
-            </Paper>
-
-            <Box sx={{ mt: 3 }}>
-              <Typography variant="h5" gutterBottom>
-                Recent Streams
-              </Typography>
+          {isLoading ? (
+            <Box display="flex" justifyContent="center" my={4}>
+              <CircularProgress />
+            </Box>
+          ) : streams.length > 0 ? (
+            <Grid container spacing={3}>
               {streams.map((stream, index) => (
-                <Card key={index} sx={{ mb: 2 }}>
-                  <CardContent>
+                <Grid item xs={12} md={6} key={index}>
+                  <Paper elevation={3} sx={{ p: 3 }}>
                     <Typography variant="h6">{stream.store_name}</Typography>
                     <Typography>Streams: {stream.stream_count}</Typography>
-                    <Typography>Earnings: ${stream.earnings}</Typography>
+                    <Typography>
+                      Earnings: ${stream.earnings.toFixed(2)}
+                    </Typography>
                     <Typography>
                       Period:{' '}
                       {new Date(stream.period_start).toLocaleDateString()} -{' '}
                       {new Date(stream.period_end).toLocaleDateString()}
                     </Typography>
-                    <Button
-                      href={stream.video_proof_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="outlined"
-                      sx={{ mt: 1 }}
-                    >
-                      View Proof
-                    </Button>
-                  </CardContent>
-                </Card>
+                  </Paper>
+                </Grid>
               ))}
-            </Box>
-          </Grid>
-        </Grid>
+            </Grid>
+          ) : (
+            <Paper elevation={3} sx={{ p: 3, textAlign: 'center' }}>
+              <Typography variant="body1" color="textSecondary">
+                No streams data available
+              </Typography>
+            </Paper>
+          )}
+        </Box>
       </Container>
     </LocalizationProvider>
   )

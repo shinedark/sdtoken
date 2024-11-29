@@ -16,6 +16,10 @@
     "recharts": "^2.13.3",
     "web3": "^1.10.0"
   },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

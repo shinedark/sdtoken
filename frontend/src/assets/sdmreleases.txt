@@ -1,0 +1,281 @@
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 01:59 ./ACADEMICO/SHINE DARK - academico.mp3
+-rw-r--r--@ 1 HubDaDub  staff   541K Dec  5  2022 ./ACADEMICO/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.9M Oct  9 01:59 ./Daytime Vandal LostTApes/Shine Dark - Tiembla.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 01:59 ./Daytime Vandal LostTApes/Shine Dark - gloria.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:00 ./Daytime Vandal LostTApes/Shine Dark - oaspfkasf.mp3
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 01:59 ./Daytime Vandal LostTApes/Shine dark - I know you want it.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 01:59 ./Daytime Vandal LostTApes/Shine Dark - kooliooo.mp3
+-rw-r--r--@ 1 HubDaDub  staff   342K Nov  9  2022 ./Daytime Vandal LostTApes/DAYTIME VANDAL LOST TAPES.png
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:00 ./TROY/SHINE DARK - troy.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:00 ./TROY/SHINE DARK - TROYINTRO.mp3
+-rw-r--r--@ 1 HubDaDub  staff   189K Dec  5  2022 ./TROY/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   4.5M Oct  9 02:00 ./SWEET PRETTY THING/SHINE DARK - SweetPrettyThing.mp3
+-rw-r--r--@ 1 HubDaDub  staff   335K Dec  5  2022 ./SWEET PRETTY THING/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   3.6M Oct  9 02:00 ./ACSH/SHINE DARK - Acsh.mp3
+-rw-r--r--@ 1 HubDaDub  staff   210K Dec  5  2022 ./ACSH/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:00 ./AWW LIFE/SHINE DARK - AWW LIFE.mp3
+-rw-r--r--@ 1 HubDaDub  staff   671K Dec  5  2022 ./AWW LIFE/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:00 ./Remastered/SHINE DARK - 10Reawaken.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:00 ./Remastered/SHINE DARK -3W.W.T.D.G.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:00 ./Remastered/SHINE DARK - 1VinylTroublesintroskid.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:00 ./Remastered/SHINE DARK - 9CalmDown.mp3
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:00 ./Remastered/SHINE DARK -2Honey.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:00 ./Remastered/SHINE DARK - 6Victory.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:00 ./Remastered/SHINE DARK - 8Mr.Rebel.mp3
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:00 ./Remastered/SHINE DARK - 7WakeUp.mp3
+-rw-r--r--@ 1 HubDaDub  staff   456K Dec  5  2022 ./Remastered/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:00 ./Remastered/SHINE DARK - 5FearFight.mp3
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:00 ./Remastered/SHINE DARK -4EnteringTheCave.mp3
+-rw-r--r--  1 HubDaDub  staff   3.8M Oct  9 02:01 ./ARCHIVE/SHINE DARK - pampam.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:01 ./ARCHIVE/SHINE DARK - CLUB.mp3
+-rw-r--r--  1 HubDaDub  staff   3.4M Oct  9 02:01 ./ARCHIVE/SHINE DARK - ARCHIVE.mp3
+-rw-r--r--@ 1 HubDaDub  staff   621K Dec  5  2022 ./ARCHIVE/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:01 ./ARCHIVE/SHINE DARK - mola.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:01 ./TEST CONTROL 123/samples.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:01 ./TEST CONTROL 123/mocore.mp3
+-rw-r--r--@ 1 HubDaDub  staff   179K Dec  5  2022 ./TEST CONTROL 123/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:01 ./TEST CONTROL 123/air.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:01 ./SKJ/SHINE DARK - pweoir.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:02 ./SKJ/SHINE DARK - ileosp.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:02 ./SKJ/SHINE DARK - oalaoal.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:02 ./SKJ/SHINE DARK - apwlso.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:02 ./SKJ/SHINE DARK - lets get h.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:02 ./SKJ/SHINE DARK - soft kill jams.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:02 ./SKJ/SHINE DARK - cpawlso.mp3
+-rw-r--r--@ 1 HubDaDub  staff   793K Oct  9 02:02 ./SKJ/SHINE DARK - give it a name.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:01 ./SKJ/SHINE DARK - cogeru.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:01 ./SKJ/SHINE DARK - casi si.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:01 ./SKJ/SHINE DARK - life pill.mp3
+-rw-r--r--@ 1 HubDaDub  staff   123K Jul  1 16:47 ./SKJ/SKJ ART WORK.jpeg
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:01 ./SKJ/SHINE DARK - epla.mp3
+-rw-r--r--  1 HubDaDub  staff   1.2M Oct  9 02:01 ./SKJ/SHINE DARK - vjdwhg.mp3
+-rw-r--r--  1 HubDaDub  staff   694K Oct  9 02:01 ./SKJ/SHINE DARK - afop.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:01 ./SKJ/SHINE DARK - byejm.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:01 ./SKJ/SHINE DARK - APledoc.mp3
+-rw-r--r--  1 HubDaDub  staff   1.1M Oct  9 02:01 ./SKJ/SHINE DARK - tuiolpo.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:01 ./SKJ/SHINE DARK - seis.mp3
+-rw-r--r--  1 HubDaDub  staff   1.1M Oct  9 02:01 ./SKJ/SHINE DARK - aovck.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:01 ./SKJ/SHINE DARK - pouiyufg.mp3
+-rw-r--r--  1 HubDaDub  staff   5.5M Oct  9 02:02 ./MELVIN/SHINE DARK - MelvinMaster.mp3
+-rw-r--r--@ 1 HubDaDub  staff   191K Dec  5  2022 ./MELVIN/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:02 ./UFO/SHINE DARK - proxy.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:02 ./UFO/SHINE DARK - JumpRope.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:02 ./UFO/SHINE DARK - DreamIll.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:02 ./UFO/SHINE DARK - sucursal.mp3
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:02 ./UFO/SHINE DARK - IGot.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.1M Dec  5  2022 ./UFO/SHINE DARK - demansupply.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:02 ./UFO/SHINE DARK - Adds.mp3
+-rw-r--r--@ 1 HubDaDub  staff   269K Dec  5  2022 ./UFO/ARTWORK.png
+-rw-r--r--@ 1 HubDaDub  staff   4.8M Dec  5  2022 ./UFO/SHINE DARK - flowerchild.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:02 ./NIGHT LVOE/SHINE DARK - Planetaria.mp3
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:02 ./NIGHT LVOE/SHINE DARK - Stars.mp3
+-rw-r--r--@ 1 HubDaDub  staff   578K Dec  5  2022 ./NIGHT LVOE/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   4.1M Oct  9 02:02 ./NIGHT LVOE/SHINE DARK - NightLove.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:03 ./GALAXTER RETRO/SHINE DARK -  Forthetrap.mp3
+-rw-r--r--@ 1 HubDaDub  staff   664K Dec  5  2022 ./GALAXTER RETRO/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:03 ./GALAXTER RETRO/SHINE DARK - RetroSuperFuture.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:03 ./GALAXTER RETRO/SHINE DARK - galaxter.mp3
+-rw-r--r--  1 HubDaDub  staff   3.5M Oct  9 02:03 ./Vol 2/SHINE DARK - RootsDownedit.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:03 ./Vol 2/SHINE DARK - Fadededit.mp3
+-rw-r--r--  1 HubDaDub  staff   2.9M Oct  9 02:03 ./Vol 2/SHINE DARK - Slobedit.mp3
+-rw-r--r--@ 1 HubDaDub  staff   385K Dec  5  2022 ./Vol 2/ARTWORK.png
+-rw-r--r--@ 1 HubDaDub  staff   6.1M Dec 18  2022 ./SURGERY/SHINE DARK - surgery.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:03 ./SURGERY/SHINE DARK - Un.mp3
+-rw-r--r--@ 1 HubDaDub  staff   246K Dec  5  2022 ./SURGERY/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK -DEMOS- FUCK off joy.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - why not.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - ratonn.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - placeres del osio.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - Dos.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:04 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - disco magic.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:04 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - HAs.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:04 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - d for isc.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - salvatore.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - tell me the truth.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMOS - holy ghost.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:03 ./LOOP FOR THOUGHT/SHINE DARK - DEMO - Cuatro.mp3
+-rw-r--r--@ 1 HubDaDub  staff   462K Nov 15  2023 ./LOOP FOR THOUGHT/loopforthoughtART.png
+-rw-r--r--  1 HubDaDub  staff   8.2K Nov 29 01:28 ./file_info.txt
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:04 ./TC/SHINE DARK - motion.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:04 ./TC/SHINE DARK - Need You.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:04 ./TC/SHINE DARK - shits n giggles.mp3
+-rw-r--r--@ 1 HubDaDub  staff   731K Nov 16  2022 ./TC/SHINE DARK - TAXCOMMISION.jpeg
+-rw-r--r--@ 1 HubDaDub  staff   402M Apr 18  2024 ./TC/SHINEDARK - TAX COMISSION - ALBUM.zip
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:04 ./TC/SHINE DARK - JumpRope.mp3
+-rw-r--r--@ 1 HubDaDub  staff   1.7M Oct  9 02:04 ./TC/SHINE DARK - Smile.mp3
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 02:04 ./TC/SHINE DARK - Roger That.mp3
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:04 ./TC/SHINE DARK - joy has hope.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:04 ./TC/SHINE DARK - demollish.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:04 ./TC/SHINE DARK - olas.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:04 ./TC/SHINE DARK - suck it.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:04 ./6am/SHINE DARK - 6Am.mp3
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:04 ./6am/SHINE DARK - coitus.mp3
+-rw-r--r--  1 HubDaDub  staff   3.1M Oct  9 02:05 ./6am/SHINE DARK - lastcall.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:04 ./6am/SHINE DARK -  uberhotel.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:04 ./6am/SHINE DARK - lobyloop.mp3
+-rw-r--r--@ 1 HubDaDub  staff   298K Dec  5  2022 ./6am/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:04 ./6am/SHINE DARK - punkwant.mp3
+-rw-r--r--@ 1 HubDaDub  staff    96K Dec  5  2022 ./OLPS/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:05 ./OLPS/SHINE DARK - olsp.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:05 ./LOOPITA/SHINE DARK - LOOPITA.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:05 ./LOOPITA/SHINE DARK - Tellyouso.mp3
+-rw-r--r--@ 1 HubDaDub  staff    65K Dec  5  2022 ./LOOPITA/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:05 ./RAW MATERIALS/SHINE DARK - RawMaterials.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:05 ./RAW MATERIALS/SHINE DARK - baybay.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:05 ./RAW MATERIALS/SHINE DARK - pattern.mp3
+-rw-r--r--@ 1 HubDaDub  staff   111K Dec  5  2022 ./RAW MATERIALS/ARTWORK.png
+-rw-r--r--@ 1 HubDaDub  staff   455K Dec  5  2022 ./LADO/ARTWORK.png
+-rw-r--r--@ 1 HubDaDub  staff   5.1M Dec  5  2022 ./LADO/SHINE DARK - LADO.mp3
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:05 ./KOLS/SHINE DARK - kolsedit.mp3
+-rw-r--r--@ 1 HubDaDub  staff   621K Dec  5  2022 ./KOLS/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 02:05 ./JOYITA/SHINE DARK FT  OBED PADILLA - JOYITA.mp3
+-rw-r--r--@ 1 HubDaDub  staff    41K Feb  6  2024 ./JOYITA/JOYITA.jpg
+-rw-r--r--@ 1 HubDaDub  staff    73K Nov 13  2023 ./JOYITA/JOYITA.png
+-rw-r--r--  1 HubDaDub  staff   3.1M Oct  9 02:05 ./JOYITA/SHINE DARK ft Obed Padilla -JOYITA - SHINE DARK REMIX.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO -  criollo.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO -  delo.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO -  Future Reference.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO -  front 180.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO - Uno.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO - dancing in the rain.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO - el punkxs .mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:06 ./LOOP FOR HEART/SHINE DARK - DEMO -  well s.mp3
+-rw-r--r--@ 1 HubDaDub  staff   111K Nov 17  2023 ./LOOP FOR HEART/lfh.png
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO - dream nation.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO -  mca.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO -  proper eagle.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:05 ./LOOP FOR HEART/SHINE DARK - DEMO -  Paolsd.mp3
+-rw-r--r--  1 HubDaDub  staff   4.2M Oct  9 02:06 ./MAOLS/SHINE DARK - Maols.mp3
+-rw-r--r--@ 1 HubDaDub  staff    76K Dec  5  2022 ./MAOLS/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:06 ./LOVA/SHINE DARK - lova.mp3
+-rw-r--r--@ 1 HubDaDub  staff   216K Dec  5  2022 ./LOVA/ARTWORK.png
+-rw-r--r--@ 1 HubDaDub  staff   6.9M Dec  5  2022 ./ROCK N ROLLA/SHINE DARK - IV.mp3
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 02:06 ./ROCK N ROLLA/SHINE DARK - arrivingtoearth.mp3
+-rw-r--r--@ 1 HubDaDub  staff   624K Dec  5  2022 ./ROCK N ROLLA/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:06 ./ROCK N ROLLA/SHINE DARK - marcian.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:06 ./ROCK N ROLLA/SHINE DARK - ilma.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:06 ./ROCK N ROLLA/SHINE DARK - wuuuu.mp3
+-rw-r--r--  1 HubDaDub  staff   2.5M Oct  9 02:07 ./Daytime Vandal 2/SHINE DARK - 3-DAP DA.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:07 ./Daytime Vandal 2/SHINE DARK -7-s power o t.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:07 ./Daytime Vandal 2/SHINE DARK - 6-YGWUG.mp3
+-rw-r--r--@ 1 HubDaDub  staff   1.5M Nov 10  2022 ./Daytime Vandal 2/SHINE DARK - DT2.png
+-rw-r--r--  1 HubDaDub  staff   2.9M Oct  9 02:06 ./Daytime Vandal 2/SHINE DARK -4-Smmer Girls.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:06 ./Daytime Vandal 2/SHINE DARK - 9-80 merc.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:06 ./Daytime Vandal 2/SHINE DARK - 8-for something.mp3
+-rw-r--r--  1 HubDaDub  staff   3.1M Oct  9 02:07 ./Daytime Vandal 2/SHINE DARK - 1-dose zone.mp3
+-rw-r--r--  1 HubDaDub  staff   2.9M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - metalica.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - por la manana.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - boys .mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - Tay .mp3
+-rw-r--r--@ 1 HubDaDub  staff   1.5M Nov  9  2022 ./DAYTIMEVANDAL 1/SHINE DARK - dt1.png
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - together.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK -fakie 180-24b.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK -I want a Tokyo Trip.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK -aplo.mp3
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:07 ./DAYTIMEVANDAL 1/SHINE DARK - zloa.mp3
+-rw-r--r--  1 HubDaDub  staff   5.3M Oct  9 02:08 ./FAR/SHINE DARK - geo.mp3
+-rw-r--r--  1 HubDaDub  staff   6.5M Oct  9 02:08 ./FAR/SHINE DARK - Nor.mp3
+-rw-r--r--  1 HubDaDub  staff   5.6M Oct  9 02:08 ./FAR/SHINE DARK - Polar.mp3
+-rw-r--r--@ 1 HubDaDub  staff   561K Dec  5  2022 ./FAR/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   5.0M Oct  9 02:07 ./FAR/SHINE DARK - TechnoOne.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:08 ./HOLIVER/SHINE DARK - Holiver.mp3
+-rw-r--r--@ 1 HubDaDub  staff   400K Dec  5  2022 ./HOLIVER/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:08 ./WOLF CALL/SHINE DARK - WolfCallM.mp3
+-rw-r--r--@ 1 HubDaDub  staff   514K Dec  5  2022 ./WOLF CALL/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:08 ./MO U/SHINE DARK - MOu.mp3
+-rw-r--r--@ 1 HubDaDub  staff   352K Dec  5  2022 ./MO U/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:08 ./DAYTIME VANDAL 3/Shine Dark -loro.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.1M Oct  9 02:09 ./DAYTIME VANDAL 3/Shine Dark - canticos bonitos.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:09 ./DAYTIME VANDAL 3/Shine Dark - poplop.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:09 ./DAYTIME VANDAL 3/Shine Dark - pop pop.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:09 ./DAYTIME VANDAL 3/Shine Dark -jiggy.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:08 ./DAYTIME VANDAL 3/22-Shine Dark -oper.mp3
+-rw-r--r--@ 1 HubDaDub  staff   927K Nov 16  2022 ./DAYTIME VANDAL 3/DT3.jpeg
+-rw-r--r--@ 1 HubDaDub  staff   2.4M Oct  9 02:08 ./DAYTIME VANDAL 3/Shine Dark -joooogagag.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:08 ./DAYTIME VANDAL 3/Shine Dark - Vandalism.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:08 ./DAYTIME VANDAL 3/Shine Dark - parceros.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:08 ./DAYTIME VANDAL 3/Shine Dark -milk.mp3
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:09 ./Light Projections/SHINE DARK - soulection.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.1M Oct  9 02:09 ./Light Projections/SHINE DARK - caballeroilustre.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.1M Oct  9 02:09 ./Light Projections/SHINE DARK - Masters at Work.mp3
+-rw-r--r--@ 1 HubDaDub  staff   217K Nov 28  2021 ./Light Projections/LpSHINE DARK - .png
+-rw-r--r--  1 HubDaDub  staff   2.3M Oct  9 02:09 ./Light Projections/SHINE DARK - keeper.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:09 ./Light Projections/SHINE DARK - Thirsty Thursday.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.3M Oct  9 02:09 ./Light Projections/SHINE DARK -312am_1.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:09 ./Light Projections/SHINE DARK - hot in here.mp3
+-rw-r--r--@ 1 HubDaDub  staff   2.1M Oct  9 02:09 ./Light Projections/SHINE DARK - all day.mp3
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:09 ./GROOVE BOX/SHINE DARK - groovebox.mp3
+-rw-r--r--  1 HubDaDub  staff   3.4M Oct  9 02:09 ./SOUL MATTER/SHINE DARK - SoulMatter.mp3
+-rw-r--r--@ 1 HubDaDub  staff   180K Dec  5  2022 ./SOUL MATTER/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   3.0M Oct  9 02:09 ./LOPAS/SHINE DARK -Lopasedit.mp3
+-rw-r--r--@ 1 HubDaDub  staff    76K Dec  5  2022 ./LOPAS/download.png
+-rw-r--r--@ 1 HubDaDub  staff   313K Dec  5  2022 ./TAKE IT/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:09 ./TAKE IT/SHINE DARK -TakeIt.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:10 ./CEE/SHINE DARK - Cee.mp3
+-rw-r--r--@ 1 HubDaDub  staff   451K Dec  5  2022 ./CEE/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:10 ./LOOP/SHINE DARK -DEMOS- FUCK off joy.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO -  criollo.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - destroyer.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - why not.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO -  delo.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - ratonn.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - desti.mp3
+-rw-r--r--  1 HubDaDub  staff   2.7M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO -  Future Reference.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO -  front 180.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - placeres del osio.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - Dos.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - Uno.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO - dancing in the rain.mp3
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - plusa.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:11 ./LOOP/SHINE DARK - DEMO - disco magic.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO - el punkxs .mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO - Cinco.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO -  well s.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO - HAs.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:12 ./LOOP/SHINE DARK - DEMO - d for isc.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - awefa.mp3
+-rw-r--r--  1 HubDaDub  staff   2.0M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - salvatore.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO -  paosld.mp3
+-rw-r--r--  1 HubDaDub  staff   2.1M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - tell me the truth.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - MR GOODBUD.mp3
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - lose hole.mp3
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - dream nation.mp3
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:10 ./LOOP/SHINE DARK - DEMOS - holy ghost.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO -  mca.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - Cuatro.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO -  proper eagle.mp3
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - life to shine.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - SKPT 2.mp3
+-rw-r--r--  1 HubDaDub  staff   5.7M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - frolpe.mp3
+-rw-r--r--  1 HubDaDub  staff   2.8M Oct  9 02:11 ./LOOP/Edits/7-Shine Dark - i was meant for loving you Kiss Edit-24b.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:12 ./LOOP/Edits/2-Shine Dark - Nirvana - SLTS - Edit-24b.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:11 ./LOOP/Edits/SHINE DARK - desti X MIA EDIT.mp3
+-rw-r--r--  1 HubDaDub  staff   2.9M Oct  9 02:12 ./LOOP/Edits/5-Donna Summer - Bad Girls - Shine Dark Edit-24b.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:11 ./LOOP/Edits/6-Shine Dark - YOu get what you give - Edit -24b.mp3
+-rw-r--r--  1 HubDaDub  staff   5.7M Oct  9 02:11 ./LOOP/Edits/SHINE DARK - frolpe X Projecto UNo El tiburon.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - rulers back.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:10 ./LOOP/SHINE DARK - DEMO - Lost pain.mp3
+-rw-r--r--  1 HubDaDub  staff   3.7M Oct  9 02:12 ./HIGH VOLTAGE/Shine Dark - HIgh Voltage.mp3
+-rw-r--r--@ 1 HubDaDub  staff   178K Dec  5  2022 ./HIGH VOLTAGE/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:12 ./FASD/SHINE DARK - Fasdm.mp3
+-rw-r--r--@ 1 HubDaDub  staff   478K Dec  5  2022 ./FASD/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:12 ./SUNDAY SCHOOL/SHINE DARK - passYon.mp3
+-rw-r--r--  1 HubDaDub  staff   1.4M Oct  9 02:12 ./SUNDAY SCHOOL/SHINE DARK - polas.mp3
+-rw-r--r--  1 HubDaDub  staff   2.4M Oct  9 02:12 ./SUNDAY SCHOOL/SHINE DARK - dren.mp3
+-rw-r--r--@ 1 HubDaDub  staff   339K Dec  5  2022 ./SUNDAY SCHOOL/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   2.2M Oct  9 02:12 ./SUNDAY SCHOOL/SHINE DARK - SundaySchool.mp3
+-rw-r--r--@ 1 HubDaDub  staff   4.7M Oct  9 02:12 ./HIFI/SHINE DARK - HifiM.mp3
+-rw-r--r--@ 1 HubDaDub  staff    93K Dec  5  2022 ./HIFI/ARTWORK.png
+-rw-r--r--  1 HubDaDub  staff   1.8M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - destroyer.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - desti.mp3
+-rw-r--r--  1 HubDaDub  staff   2.6M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - plusa.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - Cinco.mp3
+-rw-r--r--  1 HubDaDub  staff   1.3M Oct  9 02:12 ./LOOP FOR MIND/SHINE DARK - DEMO - awefa.mp3
+-rw-r--r--  1 HubDaDub  staff   1.9M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - MR GOODBUD.mp3
+-rw-r--r--  1 HubDaDub  staff   3.2M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - lose hole.mp3
+-rw-r--r--@ 1 HubDaDub  staff   230K Nov 17  2023 ./LOOP FOR MIND/lfm.png
+-rw-r--r--  1 HubDaDub  staff   1.7M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - life to shine.mp3
+-rw-r--r--  1 HubDaDub  staff   1.5M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - SKPT 2.mp3
+-rw-r--r--  1 HubDaDub  staff   5.7M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - frolpe.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - rulers back.mp3
+-rw-r--r--  1 HubDaDub  staff   1.6M Oct  9 02:13 ./LOOP FOR MIND/SHINE DARK - DEMO - Lost pain.mp3
