@@ -1,25 +1,23 @@
 {
-  "name": "sdtoken-contracts",
+  "name": "sdtoken",
   "version": "1.0.0",
-  "description": "Smart contracts for SDToken with EigenLayer integration",
-  "main": "index.js",
+  "description": "Shine Dark Music Token Platform",
   "scripts": {
-    "test": "npx hardhat test",
-    "compile": "npx hardhat compile",
-    "deploy": "npx hardhat run scripts/deploy.js",
-    "verify": "npx hardhat verify"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "4.9.6",
-    "dotenv": "^16.4.5"
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run start:blockchain\"",
+    "start:frontend": "cd frontend && PORT=3001 npm run start",
+    "start:backend": "cd backend && python3 main.py",
+    "start:blockchain": "cd contracts && npx hardhat node",
+    "deploy:contracts": "cd contracts && npx hardhat run scripts/deploy.js --network localhost",
+    "setup:blockchain": "concurrently \"npm run start:blockchain\" \"sleep 5 && npm run deploy:contracts\"",
+    "install:all": "npm install && cd frontend && npm install && cd ../contracts && npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox && cd ../backend && pip3 install -r requirements.txt",
+    "test": "cd contracts && npx hardhat test",
+    "clean": "rm -rf frontend/node_modules backend/__pycache__ contracts/node_modules",
+    "setup": "npm run clean && npm run install:all"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
     "@nomiclabs/hardhat-etherscan": "^3.1.8",
-    "hardhat": "^2.14.0",
-    "hardhat-gas-reporter": "^1.0.10",
-    "solidity-coverage": "^0.8.14",
-    "source-map-loader": "^5.0.0"
+    "concurrently": "^8.0.1",
+    "hardhat": "^2.19.0"
   }
 }

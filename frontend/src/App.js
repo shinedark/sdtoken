@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   Container,
   Paper,
@@ -8,6 +8,9 @@ import {
   Alert,
   Divider,
   CircularProgress,
+  Button,
+  Stack,
+  Tooltip,
 } from '@mui/material'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
@@ -17,10 +20,14 @@ import TokenDashboard from './components/TokenDashboard'
 import StakingInterface from './components/StakingInterface'
 import PriceChart from './components/PriceChart'
 import ReleasesGrid from './components/ReleasesGrid'
-import SKJMusicTokenABI from './contracts/SKJMusicToken.json'
+import { SDTokenABI } from './contracts/abis'
+import { connectWeb3 } from './utils/web3'
+import { AccountCircle, Logout } from '@mui/icons-material'
+import { CONTRACT_ADDRESSES } from './contracts/addresses'
 
 const API_URL = 'http://localhost:8000/api'
-const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS
+const CONTRACT_ADDRESS = CONTRACT_ADDRESSES.SDToken
+const ARTIST_ADDRESS = '0xfB91A0Dba31ba4d042886C2A0b3AA23BFb23F196'
 
 function App() {
   const [streams, setStreams] = useState([])
@@ -30,38 +37,81 @@ function App() {
   const [account, setAccount] = useState(null)
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [metricsKey, setMetricsKey] = useState(0)
 
-  useEffect(() => {
-    fetchData()
-    initializeWeb3()
-  }, [])
-
-  const initializeWeb3 = async () => {
+  const initializeWeb3 = useCallback(async () => {
     try {
       if (window.ethereum) {
-        const web3Instance = new Web3(window.ethereum)
-        await window.ethereum.request({ method: 'eth_requestAccounts' })
-        const accounts = await web3Instance.eth.getAccounts()
+        const { web3: web3Instance, accounts } = await connectWeb3()
         const contractInstance = new web3Instance.eth.Contract(
-          SKJMusicTokenABI,
+          SDTokenABI,
           CONTRACT_ADDRESS,
         )
 
         setWeb3(web3Instance)
         setContract(contractInstance)
         setAccount(accounts[0])
-
-        // Listen for account changes
-        window.ethereum.on('accountsChanged', (accounts) => {
-          setAccount(accounts[0])
-        })
-      } else {
-        setError('Please install MetaMask to use this dApp')
       }
     } catch (err) {
+      console.error('Web3 connection error:', err)
       setError('Error connecting to Web3: ' + err.message)
     }
+  }, [])
+
+  useEffect(() => {
+    if (account === ARTIST_ADDRESS) {
+      return
+    }
+
+    if (web3 && account) {
+      const contractInstance = new web3.eth.Contract(
+        SDTokenABI,
+        CONTRACT_ADDRESS,
+      )
+      setContract(contractInstance)
+    }
+  }, [web3, account])
+
+  const handleAccountsChanged = useCallback((newAccounts) => {
+    if (newAccounts.length === 0) {
+      // User disconnected
+      setAccount(null)
+      setContract(null)
+      setWeb3(null)
+    } else {
+      setAccount(newAccounts[0])
+    }
+  }, [])
+
+  useEffect(() => {
+    initializeWeb3()
+
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', handleAccountsChanged)
+    }
+
+    return () => {
+      if (window.ethereum) {
+        window.ethereum.removeListener('accountsChanged', handleAccountsChanged)
+      }
+    }
+  }, [initializeWeb3, handleAccountsChanged])
+
+  const handleConnect = async () => {
+    setError(null)
+    try {
+      await initializeWeb3()
+    } catch (err) {
+      console.error('Connection error:', err)
+      setError('Failed to connect wallet: ' + err.message)
+    }
   }
+
+  const handleDisconnect = useCallback(() => {
+    setAccount(null)
+    setContract(null)
+    setWeb3(null)
+  }, [])
 
   const fetchData = async () => {
     setIsLoading(true)
@@ -89,29 +139,110 @@ function App() {
     }
   }
 
+  const handleStakingChange = () => {
+    setMetricsKey((prev) => prev + 1)
+  }
+
+  const formatAddress = (address) => {
+    return `${address.substring(0, 6)}...${address.substring(
+      address.length - 4,
+    )}`
+  }
+
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h3" gutterBottom>
-          SDToken Stream Management
-        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mb: 4,
+          }}
+        >
+          <Typography variant="h3" component="h1">
+            SDToken Stream Management
+          </Typography>
+
+          {account ? (
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Tooltip title={account}>
+                <Button
+                  variant="outlined"
+                  startIcon={<AccountCircle />}
+                  color="primary"
+                >
+                  {formatAddress(account)}
+                </Button>
+              </Tooltip>
+              <Tooltip title="Disconnect Wallet">
+                <Button
+                  variant="outlined"
+                  startIcon={<Logout />}
+                  color="error"
+                  onClick={handleDisconnect}
+                >
+                  Disconnect
+                </Button>
+              </Tooltip>
+            </Stack>
+          ) : (
+            <Button
+              variant="contained"
+              startIcon={<AccountCircle />}
+              onClick={handleConnect}
+              disabled={!!error}
+            >
+              Connect Wallet
+            </Button>
+          )}
+        </Box>
 
         {error && (
-          <Alert severity="error" sx={{ mb: 3 }}>
+          <Alert
+            severity="error"
+            sx={{ mb: 3 }}
+            action={
+              <Button color="inherit" size="small" onClick={handleConnect}>
+                Retry Connection
+              </Button>
+            }
+          >
             {error}
           </Alert>
         )}
 
-        {web3 && contract && account && (
+        {web3 && contract && account ? (
           <>
-            <TokenDashboard web3={web3} contract={contract} account={account} />
+            <TokenDashboard
+              key={metricsKey}
+              web3={web3}
+              contract={contract}
+              account={account}
+            />
             <PriceChart web3={web3} contract={contract} />
             <StakingInterface
               web3={web3}
               contract={contract}
               account={account}
+              onStakingChange={handleStakingChange}
             />
           </>
+        ) : (
+          <Paper elevation={3} sx={{ p: 4, textAlign: 'center', mb: 3 }}>
+            <Typography variant="h5" gutterBottom color="text.secondary">
+              Connect your wallet to view token metrics and stake
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<AccountCircle />}
+              onClick={handleConnect}
+              disabled={!!error}
+              sx={{ mt: 2 }}
+            >
+              Connect Wallet
+            </Button>
+          </Paper>
         )}
 
         <Box mt={4}>

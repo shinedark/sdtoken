@@ -1,0 +1,20 @@
+{
+  "name": "sdtoken-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for SDToken",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "copy-artifacts": "node scripts/copyArtifacts.js",
+    "predeploy:local": "npm run compile",
+    "postdeploy:local": "npm run copy-artifacts",
+    "node": "hardhat node"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^4.9.6",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.22.1"
+  }
+}

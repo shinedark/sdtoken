@@ -3,198 +3,227 @@ import {
   Paper,
   Typography,
   Grid,
-  Card,
-  CardContent,
-  LinearProgress,
-  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Collapse,
+  IconButton,
   Box,
 } from '@mui/material'
-import {
-  Timeline,
-  TrendingUp,
-  AccountBalance,
-  Group,
-  MonetizationOn,
-} from '@mui/icons-material'
+import { ExpandMore, ExpandLess } from '@mui/icons-material'
 
 const TokenDashboard = ({ web3, contract, account }) => {
-  const [tokenMetrics, setTokenMetrics] = useState({
-    price: '0',
+  const [metrics, setMetrics] = useState({
     totalSupply: '0',
     totalStaked: '0',
+    price: '0',
     stakersCount: '0',
-    artistBalance: '0',
   })
-  const [isLoading, setIsLoading] = useState(true)
+  const [stakers, setStakers] = useState([])
+  const [showStakers, setShowStakers] = useState(false)
 
   useEffect(() => {
-    if (contract) {
-      fetchTokenMetrics()
-      const interval = setInterval(fetchTokenMetrics, 30000) // Refresh every 30 seconds
+    const fetchMetrics = async () => {
+      try {
+        const eigenStrategyAddress = await contract.methods
+          .eigenStrategy()
+          .call()
+
+        const eigenStrategy = new web3.eth.Contract(
+          [
+            {
+              constant: true,
+              inputs: [],
+              name: 'totalShares',
+              outputs: [{ name: '', type: 'uint256' }],
+              payable: false,
+              stateMutability: 'view',
+              type: 'function',
+            },
+          ],
+          eigenStrategyAddress,
+        )
+
+        const [totalSupply, totalStaked, price] = await Promise.all([
+          contract.methods.totalSupply().call(),
+          eigenStrategy.methods.totalShares().call(),
+          contract.methods.getCurrentPrice().call(),
+        ])
+
+        setMetrics({
+          totalSupply: web3.utils.fromWei(totalSupply),
+          totalStaked: web3.utils.fromWei(totalStaked),
+          price: web3.utils.fromWei(price),
+        })
+      } catch (error) {
+        console.error('Error fetching token metrics:', error)
+      }
+    }
+
+    const fetchStakers = async () => {
+      try {
+        const eigenStrategyAddress = await contract.methods
+          .eigenStrategy()
+          .call()
+        console.log('EigenStrategy address:', eigenStrategyAddress)
+
+        // Check if the user has any tokens
+        const balance = await contract.methods.balanceOf(account).call()
+        console.log(
+          'User balance:',
+          web3.utils.fromWei(balance, 'ether'),
+          'SDT',
+        )
+
+        // Check if user is in stakers list
+        const stakerCount = await contract.methods.getStakersCount().call()
+        console.log('Total staker count:', stakerCount)
+
+        const stakerPromises = []
+        for (let i = 0; i < stakerCount; i++) {
+          stakerPromises.push(contract.methods.getStakerAtIndex(i).call())
+        }
+        const stakerAddresses = await Promise.all(stakerPromises)
+        console.log('Staker addresses:', stakerAddresses)
+
+        // Get shares for all addresses
+        const eigenStrategy = new web3.eth.Contract(
+          [
+            {
+              constant: true,
+              inputs: [{ name: 'account', type: 'address' }],
+              name: 'shares',
+              outputs: [{ name: '', type: 'uint256' }],
+              payable: false,
+              stateMutability: 'view',
+              type: 'function',
+            },
+          ],
+          eigenStrategyAddress,
+        )
+
+        const stakerInfoPromises = stakerAddresses.map(async (address) => {
+          const shares = await eigenStrategy.methods.shares(address).call()
+          const stakes = await contract.methods.getStakedBalance(address).call()
+          console.log(`Address ${address}:`, {
+            shares: web3.utils.fromWei(shares, 'ether'),
+            stakes: web3.utils.fromWei(stakes, 'ether'),
+          })
+
+          return {
+            address,
+            shares: web3.utils.fromWei(shares, 'ether'),
+            stakes: web3.utils.fromWei(stakes, 'ether'),
+            isCurrentUser: address.toLowerCase() === account?.toLowerCase(),
+          }
+        })
+
+        const stakerInfo = await Promise.all(stakerInfoPromises)
+        console.log('Raw staker info:', stakerInfo)
+
+        // Sort by shares and filter out zero shares
+        const sortedStakers = stakerInfo
+          .filter((staker) => Number(staker.stakes) > 0)
+          .sort((a, b) => Number(b.stakes) - Number(a.stakes))
+
+        console.log('Filtered and sorted stakers:', sortedStakers)
+        setStakers(sortedStakers)
+
+        // Update metrics
+        setMetrics((prev) => ({
+          ...prev,
+          stakersCount: sortedStakers.length.toString(),
+        }))
+      } catch (error) {
+        console.error('Error fetching stakers:', error)
+      }
+    }
+
+    if (contract && web3) {
+      fetchMetrics()
+      fetchStakers()
+
+      // Set up polling
+      const interval = setInterval(() => {
+        fetchMetrics()
+        fetchStakers()
+      }, 10000) // Poll every 10 seconds
+
       return () => clearInterval(interval)
     }
-  }, [contract, account])
+  }, [contract, web3, account])
 
-  const fetchTokenMetrics = async () => {
-    try {
-      const [
-        price,
-        totalSupply,
-        totalStaked,
-        stakersCount,
-        artistBalance,
-      ] = await Promise.all([
-        contract.methods.getCurrentPrice().call(),
-        contract.methods.totalSupply().call(),
-        contract.methods.eigenStrategy().methods.totalShares().call(),
-        contract.methods.getStakersCount().call(),
-        contract.methods.getArtistWithdrawableBalance().call(),
-      ])
-
-      setTokenMetrics({
-        price: web3.utils.fromWei(price, 'ether'),
-        totalSupply: web3.utils.fromWei(totalSupply, 'ether'),
-        totalStaked: web3.utils.fromWei(totalStaked, 'ether'),
-        stakersCount,
-        artistBalance: web3.utils.fromWei(artistBalance, 'ether'),
-      })
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error fetching token metrics:', error)
-      setIsLoading(false)
-    }
-  }
-
-  const handleArtistWithdraw = async () => {
-    try {
-      await contract.methods.artistWithdraw().send({ from: account })
-      await fetchTokenMetrics()
-    } catch (error) {
-      console.error('Error withdrawing artist funds:', error)
-    }
-  }
-
-  if (isLoading) {
-    return <LinearProgress />
+  const formatAddress = (address) => {
+    return `${address.substring(0, 6)}...${address.substring(
+      address.length - 4,
+    )}`
   }
 
   return (
-    <Paper elevation={3} sx={{ p: 3, mt: 3 }}>
-      <Typography
-        variant="h5"
-        gutterBottom
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
-        <Timeline sx={{ mr: 1 }} />
+    <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
+      <Typography variant="h5" gutterBottom>
         Token Metrics
       </Typography>
-
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardContent>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <TrendingUp sx={{ mr: 1 }} />
-                Token Price
-              </Typography>
-              <Typography variant="h5">
-                ${parseFloat(tokenMetrics.price).toFixed(4)}
-              </Typography>
-            </CardContent>
-          </Card>
+      <Grid container spacing={3} sx={{ mb: 3 }}>
+        <Grid item xs={12} sm={4}>
+          <Typography variant="subtitle1">Total Supply</Typography>
+          <Typography variant="h6">{metrics.totalSupply} SDT</Typography>
         </Grid>
-
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardContent>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <AccountBalance sx={{ mr: 1 }} />
-                Total Supply
-              </Typography>
-              <Typography variant="h5">
-                {parseFloat(tokenMetrics.totalSupply).toLocaleString()} SKJ
-              </Typography>
-            </CardContent>
-          </Card>
+        <Grid item xs={12} sm={4}>
+          <Typography variant="subtitle1">Total Staked</Typography>
+          <Typography variant="h6">{metrics.totalStaked} SDT</Typography>
         </Grid>
-
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardContent>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <MonetizationOn sx={{ mr: 1 }} />
-                Total Staked
-              </Typography>
-              <Typography variant="h5">
-                {parseFloat(tokenMetrics.totalStaked).toLocaleString()} SKJ
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                {(
-                  (tokenMetrics.totalStaked / tokenMetrics.totalSupply) *
-                  100
-                ).toFixed(2)}
-                % of supply
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardContent>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <Group sx={{ mr: 1 }} />
-                Total Stakers
-              </Typography>
-              <Typography variant="h5">{tokenMetrics.stakersCount}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={8}>
-          <Card>
-            <CardContent>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <MonetizationOn sx={{ mr: 1 }} />
-                Artist's Withdrawable Balance
-              </Typography>
-              <Typography variant="h5">
-                {parseFloat(tokenMetrics.artistBalance).toFixed(4)} ETH
-              </Typography>
-              <Box sx={{ mt: 2 }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleArtistWithdraw}
-                  disabled={parseFloat(tokenMetrics.artistBalance) === 0}
-                >
-                  Withdraw Funds
-                </Button>
-              </Box>
-            </CardContent>
-          </Card>
+        <Grid item xs={12} sm={4}>
+          <Typography variant="subtitle1">Current Price</Typography>
+          <Typography variant="h6">${metrics.price}</Typography>
         </Grid>
       </Grid>
+
+      <Box sx={{ mt: 3 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+          }}
+          onClick={() => setShowStakers(!showStakers)}
+        >
+          <Typography variant="h6">
+            Active Stakers ({stakers.length})
+          </Typography>
+          <IconButton size="small">
+            {showStakers ? <ExpandLess /> : <ExpandMore />}
+          </IconButton>
+        </Box>
+        <Collapse in={showStakers}>
+          <List>
+            {stakers.map((staker) => (
+              <ListItem
+                key={staker.address}
+                sx={{
+                  bgcolor: staker.isCurrentUser ? 'action.selected' : 'inherit',
+                }}
+              >
+                <ListItemText
+                  primary={
+                    <>
+                      <Typography
+                        component="span"
+                        variant="body1"
+                        color={staker.isCurrentUser ? 'primary' : 'inherit'}
+                      >
+                        {formatAddress(staker.address)}
+                        {staker.isCurrentUser && ' (You)'}
+                      </Typography>
+                    </>
+                  }
+                  secondary={`${Number(staker.stakes).toFixed(2)} SDT staked`}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+      </Box>
     </Paper>
   )
 }
